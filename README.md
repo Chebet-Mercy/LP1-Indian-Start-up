@@ -1,49 +1,57 @@
 # LP1-Indian-Start-up
+This repositiory presents an analysis of funding received by Indian startups from 2018 to 2021 using Exploratory Data Analysis (EDA) techniques. The objective of this analysis was to gain insights into the Indian startup ecosystem, provide valuable information for decision-makers considering entry into the market, and understand the funding and growth patterns of newly launched startups.
+
+## PROJECT SUMMARY 
+
+|Project Code | Project Name | Description | Technology Used | Published Article |
+|-------------|--------------|-------------|-----------------|------------------|
+|LP1 | Indian-Start-up-Funding-Analysis  | Analysing  the funding received by Indian startups from 2018 to 2021 using Exploratory Data Analysis (EDA) techniques| Python, Pandas, Matplotlib, Seaborn, Jupyter Notebook |
+
+## Exploratory Data Analysis (EDA)
+Exploratory Data Analysis (EDA) plays a vital role in understanding and extracting insights from datasets. It allows us to uncover patterns, relationships, and key characteristics of the data. The main objective of this project is to utilize the CRISP-DM framework as a guiding framework for conducting exploratory data analysis (EDA) and extracting valuable insights. The CRoss Industry Standard Process for Data Mining (CRISP-DM) is a process model that serves as the base for data processing. 
+
+## Introduction
 In this project our team is tasked with an assignment to assess the viability of setting up a startup in the indian Ecosystem. We have been provided with various datasets from 2018 to 2021 which will aid us in exploration, analysis and making informed data-driven decisions. The Model we will be using is the *CRISP-DM* model using the *Agile* methodology for a good flow with our project. The *CRISP-DM* stages used in this project are excludig Evaluation and Modeling as we will not be doing any Machine Learning.Therefore the stages we will be going through are Business Understanding, Data Understanding, Data Preparation and In Deployment we will be using Power Bi and Medium for Project Article write-up.
 
-## 1.0 Business understanding 
-In this phase we delve deeper to understand the assignment at hand and the business requirement of the project by:
-    -*Setting the project title* 
-    -*Coming up with a hypothesis testing for our project*
-    -*Setting up our analysis questions in this case what are we intending to find out as we navigate the data*
+###  Import libraries 
+To begin our analysis, we import the necessary libraries and packages that will be used throughout the process. These libraries include:
 
-### 1.1 Seting the project title 
-*Project Title*: 
-   
-    **Viability of setting up a Startup Business in the Indian Ecosystem**
+1. 	Pandas: A powerful tool for data manipulation and analysis, allowing us to handle and manipulate datasets efficiently. It is imported using the statement "import pandas as pd"
+2. 	Numpy: A fundamental library for scientific computing in Python, providing a range of mathematical functions and support for multi-dimensional arrays. It enables efficient numerical operations on data and is imported as "import numpy as np".
+3. 	Matplotlib: A widely used plotting library that offers various customization options for creating charts, graphs, and plots. It allows us to visualize and communicate our findings effectively. It is imported as "import matplotlib.pyplot as plt".
+4. 	Seaborn: A statistical data visualization library built on top of Matplotlib. It provides high-level interfaces for creating visually appealing and informative statistical graphics. It is imported as "import seaborn as sns".
 
-### 1.2 Coming up with a Hypothesis testing 
-*Hypothesis Testiing*:
+### To Gain Data Insights
 
-**Null Hypothesis:  Null Hypothesis (H0) There is no significant difference in the amount of funding recieved by startups across different sectors and stages**
+1. df.shape(): This function provides the total number of rows and columns in the dataset. In our case, the 2018 dataset has 526 rows and 6 columns, 2019 has 89 rows and 9 coluumns 2020 has 1051 rows and 9 columns and 2021 has 1189 rows, 9 columns.
+2. df.head(): This function displays the first five rows of the dataset, giving us a glimpse of the data. Similarly, df.tail() shows the last five rows of the dataset.
+3. df.info(): By using this function, we can obtain information about the dataset, including the column names and their data types.  It also informs us about the number of non-null values in each column.
 
-**Alternative Hypothesis (H1) There is a significant difference in the amount of funding recieved by startups across different sectors and stages**
+By applying these methods to our dataset, we gain a comprehensive understanding of its structure and content. This allows us to identify any initial issues and establish the purpose of our analysis. It helps us define specific problems to be addressed and derive insights for solving them
 
-### 1.3 Setting the Analytical Qustions 
+###  Hypothesis 
+During the analysis process, a null hypothesis is formulated to guide the investigation. Various questions are posed and analyzed to gain insights from the data. Ultimately, the null hypothesis is either accepted or rejected based on the findings derived from the data analysis.
 
-*Analytical Questions* - This two analytical questions are among the questions we asked in this project - Kindly delve into the project to see more of the questions.
+Null Hypothesis (H0): There is no significant difference in the amount of funding received by startups across different sectors and stages.
+Alternate Hypothesis (H1): There is a significant difference in the amount of funding received by startups across different sectors and stages.
 
-**Stage Analysis:
-What is the distribution of funding across different investment stages (e.g., Pre-seed, Seed, Series A)?**
+## Analytical Questions
+Funding Trends: How has the total funding amount changed year over year from 2018 to 2021? How has the average funding amount in each sector changed over the years (2018 - 2021)?
+Sector Analysis: Which sectors have received the most funding, and how does the funding distribution vary across sectors?
+Stage Analysis: What is the distribution of funding across different investment stages (e.g., Pre-seed, Seed, Series A)?
+Geographical Analysis: Which cities or regions have the highest concentration of funded startups?
+Investor Influence: Who are the top investors in the Indian startup ecosystem, and what is their funding pattern?
+Founder Impact: Is there a correlation between the number of founders and the amount of funding received?
+Business Viability: Which businesses are more viable to set up based on funding trends and sector analysis?
 
-**Geographical Analysis:
-Which cities or regions (HeadQuarter) have the highest concentration of funded startups?**
-
-## 2.0 Data Understanding
-*In this phase we Load our individual datasets and after each datasets we do cleaning of the loaded dataset*
-
-### 2.1 Installation 
-
-```
-%pip install pyodbc
+## Installation
+%pip install pyodbc  
 %pip install python-dotenv
+%pip install seaborn
 %pip install openpyxl
-``` 
+%pip install plotly
 
-### 2.2 Importations  
-
-```dotnetcli
-
+## Importations
 import pyodbc 
 from dotenv import dotenv_values 
 import numpy as np
@@ -56,282 +64,32 @@ import statsmodels.api as sm
 import warnings
 
 warnings.filterwarnings ('ignore')
-```
-### 2.3 Loading environment variables from .env file into a dictionary and getting credentials set in the .env file
 
-```
-environment_variables = dotenv_values('C:\\Users\\Admin\\OneDrive\\OneDrive-Azubi\\CA-LP1\\LP1-Indian-Startup-Ecosystem-1\\Notebooks\\.env')
+### Issues with The Data
 
-server = environment_variables.get('server')
-database = environment_variables.get('database')
-username = environment_variables.get('username')
-password = environment_variables.get('password')
-```
+After looking carefully at the data, the following issues were identified
 
-### 2.4 Creating a connection string
-```
-connection_string = f"DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password};MARS_Connection=yes;MinProtocolVersion=TLSv1.2;"
+1. The 2018 Dataset had different and fewer columns
+2. There are missing values
+3. Some values are in the wrong columns
+4. The datatypes of some of the columns need to be changed
+5. One column is unnamed
 
-connection = pyodbc.connect(connection_string)
-```
-### 2.5: Accessing the 1st dataset (2020) from SQL Server
+### Handling issues with the data
+The following steps were taken to handle the issues with the datasets
 
-*Query and Read the dataset from the SQL Database*
-```
-query = '''SELECT *
-FROM dbo.LP1_startup_funding2020'''
+1. Analyse the 2018 data separately from the rest
+2. Replace missing data with either N/A or the mode of that column depending on the column data
+3. Move values in the wrong columns to their appropriate columns
+4. Change the datatype of columns to appropriate datatypes
+5. Checked the summary statistics to identify any inconsistencies or outliers in the data.
+6. Removed any duplicate records to ensure a high level of data accuracy.
+7. Adding new columns to the dataset to capture additional information and insights.
+8. Performed advanced techniques such as data imputation, outlier detection and handling, and data normalization to further improve the quality of the data.
+9. Rename columns.
 
-data =pd.read_sql(query, connection)
-```
-**2.5.1: Once our 1st Dataset is loaded we go ahead to Expore our dataset using functions such as '.head()',  '.shape', '.isnull', '.duplicated', '.desribe()', '.unique()', '.value_counts()'**
+### Answering the questions. 
 
-**2.5.2: '.info' to guide in some of the realisations**
-```<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 1055 entries, 0 to 1054
-Data columns (total 10 columns):
- #   Column         Non-Null Count  Dtype  
----  ------         --------------  -----  
- 0   Company_Brand  1055 non-null   object 
- 1   Founded        842 non-null    float64
- 2   HeadQuarter    961 non-null    object 
- 3   Sector         1042 non-null   object 
- 4   What_it_does   1055 non-null   object 
- 5   Founders       1043 non-null   object 
- 6   Investor       1017 non-null   object 
- 7   Amount         801 non-null    float64
- 8   Stage          591 non-null    object 
- 9   column10       2 non-null      object 
-dtypes: float64(2), object(8)
-memory usage: 82.5+ KB
-```
-
-**2.5.3: Findings are that:**
-  - There are missing values in the 'Founded', 'HeadQuarter', 'Sector', 'Founders', 'Investor', 'Amount', 'Stage', and ;'Column10' 
-  - Founded Column needs to be converted from float to integer datatype
-  - Sector needs to be categorised into groupings to easily work with it 
-  - Stage Column needs to be categorised 
-  - Column 10 has 99.8% missing values therefore needs to be droped as its impact is minimal
-  - There are 3 duplicated rows that need to be dropped 
-  - We will need an 'Year' Column added 
-
-**2.5.4: The next step, we clean our 1st dataset (2020 dataset) column by column** 
-
-**A glimpse to cleaning one of the columns ('HeadQuarter')**
-
-```
-# Find top HeadQuarters to be used randomnly in filling missing values
-
-top_HeadQuarter= ['Bangalore','Mumbai','Gurugram','Delhi','Chennai','Pune','New Delhi','Noida','Hyderabad','Gurgaon',
-'Ahmedabad','Kolkata','Haryana','Indore','Jaipur','Thane','Kochi','Gujarat','California','Singapore']
-
-# Fill missing value with random values from top 20 Hedquarter
-
-def  fill_missing_HeadQuarter (HeadQuarter):
-    if pd.isna(HeadQuarter):
-        return np.random.choice(top_HeadQuarter)
-    return HeadQuarter
+The answers to some of the relevants questions above are virsualized using the dashbooard below.
 
 
-data['HeadQuarter']=data['HeadQuarter'].apply(fill_missing_HeadQuarter)
-
-
-# Convert all enries to title
-data['HeadQuarter'] = data['HeadQuarter'].str.title()
-```
-
-
-**2.5.5: All cleaning is done and we add an 'Year' Column to our dataset**
-
-**We then '.info' to confirm that our data is as it should be**
-
-```dotnetcli
-
-<class 'pandas.core.frame.DataFrame'>
-Index: 1053 entries, 0 to 1054
-Data columns (total 10 columns):
- #   Column         Non-Null Count  Dtype   
----  ------         --------------  -----   
- 0   Company_Brand  1053 non-null   object  
- 1   Founded        1053 non-null   int32   
- 2   HeadQuarter    1053 non-null   object  
- 3   Sector         1053 non-null   object  
- 4   What_it_does   1053 non-null   object  
- 5   Founders       1053 non-null   object  
- 6   Investor       1053 non-null   object  
- 7   Amount         1053 non-null   float64 
- 8   Stage          1053 non-null   category
- 9   Year           1053 non-null   int64   
-dtypes: category(1), float64(1), int32(1), int64(1), object(6)
-memory usage: 80.6+ KB
-```
-
-### 2.6: Accessing the 2nd dataset (2021) from SQL Server
-
-
-**2.6.1: Following the same process for the 2nd dataset (2021) as the 1st dataset**
-*The realisation was that there was so much similarity with 1st dataset (2020) interms of columns names of the dataset*
-
-**Using the same process as the 1st dataset we load, Read and Clean the dataset**
-
-**2.6.2: what we started with**
-```dotnetcli
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 1209 entries, 0 to 1208
-Data columns (total 9 columns):
- #   Column         Non-Null Count  Dtype  
----  ------         --------------  -----  
- 0   Company_Brand  1209 non-null   object 
- 1   Founded        1208 non-null   float64
- 2   HeadQuarter    1208 non-null   object 
- 3   Sector         1209 non-null   object 
- 4   What_it_does   1209 non-null   object 
- 5   Founders       1205 non-null   object 
- 6   Investor       1147 non-null   object 
- 7   Amount         1206 non-null   object 
- 8   Stage          781 non-null    object 
-dtypes: float64(1), object(8)
-memory usage: 85.1+ KB
-``` 
-**2.6.3: Findings**
-        -There are 19 dulpicated rows that need to be dropped
-        -There are missing values in the 'Founded', 'HeadQuarter','Founders', Investor', 'Amount' and 'Stage' Columns
-        -Founded Column need to be converted to an integer 
-        -Sector column needs to be converted to category datatype 
-        -Amount Column had misplcaed vales from other columns, and needs to be converted to float datatype 
-        -We will add an 'Year' column
-
-
-**2.6.4: After Cleaning**
-```dotnetcli
-<class 'pandas.core.frame.DataFrame'>
-Index: 1145 entries, 0 to 1208
-Data columns (total 10 columns):
- #   Column         Non-Null Count  Dtype   
----  ------         --------------  -----   
- 0   Company_Brand  1145 non-null   object  
- 1   Founded        1145 non-null   int32   
- 2   HeadQuarter    1145 non-null   object  
- 3   Sector         1145 non-null   object  
- 4   What_it_does   1145 non-null   object  
- 5   Founders       1145 non-null   object  
- 6   Investor       1145 non-null   object  
- 7   Amount         1145 non-null   float64 
- 8   Stage          1145 non-null   category
- 9   Year           1145 non-null   int64   
-dtypes: category(1), float64(1), int32(1), int64(1), object(6)
-memory usage: 87.4+ KB
-```
-
-### 2.7: Accessing the 3nd dataset (2018) from OneDrive 
-
-*Using pd.read_excel we load our dataset which we dounloaded from OneDrive*
-
-**2.7.1: Following the same process for the 3rd dataset (2018) as the 2nd (2021) dataset**
-*The realisation was that there was so much similarity with 1st and 2nd datasets (2020 & 2021) in-terms of column names of the dataset*
-
-**Using the same process as the 1st dataset we load, Read and Clean the dataset**
-
-**2.7.2: what we started with**
-```dotnetcli
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 89 entries, 0 to 88
-Data columns (total 9 columns):
- #   Column         Non-Null Count  Dtype  
----  ------         --------------  -----  
- 0   Company/Brand  89 non-null     object 
- 1   Founded        60 non-null     float64
- 2   HeadQuarter    70 non-null     object 
- 3   Sector         84 non-null     object 
- 4   What it does   89 non-null     object 
- 5   Founders       86 non-null     object 
- 6   Investor       89 non-null     object 
- 7   Amount($)      89 non-null     object 
- 8   Stage          43 non-null     object 
-dtypes: float64(1), object(8)
-memory usage: 6.4+ KB
-```
-
-**2.7.3: Findings**
-        -There are no dulpicated rows that need to be dropped
-        -There are missing values in the 'Founded', 'HeadQuarter','Founders', Investor','Sector' and 'Stage' Columns
-        -Founded Column need to be converted to an integer 
-        -Sector column needs to be converted to category datatype 
-        -Amount Column name has dollar sign unlike other column names($),has 'Undisclosed' values, and needs to be converted to float datatype 
-        -We will add an 'Year' column
-
-
-**2.7.4: After Cleaning**
-```dotnetcli
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 89 entries, 0 to 88
-Data columns (total 10 columns):
- #   Column         Non-Null Count  Dtype   
----  ------         --------------  -----   
- 0   Company_Brand  89 non-null     object  
- 1   Founded        89 non-null     int32   
- 2   HeadQuarter    89 non-null     object  
- 3   Sector         89 non-null     object  
- 4   What_it_does   89 non-null     object  
- 5   Founders       89 non-null     object  
- 6   Investor       89 non-null     object  
- 7   Amount         89 non-null     float64 
- 8   Stage          89 non-null     category
- 9   Year           89 non-null     int64   
-dtypes: category(1), float64(1), int32(1), int64(1), object(6)
-memory usage: 6.8+ KB
-```
-
-### 2.8 : Accessing the 4th dataset (2019) from the GitHub Repository
-*Using pd.read_csv we load our dataset which we downloaded from the GitHub Repository*
-
-
-**2.8.1: Following the same process for the 4th dataset (2019) as the 1st,2nd & 3rd datasets (2020, 2021, 2018) dataset**
-*The realisation was that there was not so much similarity with 1st and 2nd & 3rd datasets (2020, 2021, 2018) in-terms of column names of the dataset also the Columns in this particular year were fewer*
-*This dataset also has no missing values only the datatypes need to be converted for some columns*
-
-**Using the same process as the 1st dataset we load, Read, Explore and Clean the dataset**
-
-**2.8.2: what we started with**
-```
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 526 entries, 0 to 525
-Data columns (total 6 columns):
- #   Column         Non-Null Count  Dtype 
----  ------         --------------  ----- 
- 0   Company Name   526 non-null    object
- 1   Industry       526 non-null    object
- 2   Round/Series   526 non-null    object
- 3   Amount         526 non-null    object
- 4   Location       526 non-null    object
- 5   About Company  526 non-null    object
-dtypes: object(6)
-memory usage: 24.8+ KB
-```
-
-**2.8.3: Findings**
-         - There was need to remaname the column names to match the first 3 datasets 
-         - The Round/Series which is converted to Stage Column had links and 'Undisclosed' values that need to be replaced  
-         - The Industry which is converted to Sector colum, need spliting of its values to match the other 3 datasets formats and categorise them just as the above 3 datasets
-         - This dataset has 1 duplicated row 
-         - The Amount Colum has both values in Dollars and Rupees which need to be converted all to dollars. Non mumeric values such as ('$' ',') need to be removed and '-' values replaced 
-         - Add 'Year' Column
-         
-
-
-**2.8.4: After Cleaning**
-```dotnetcli
-<class 'pandas.core.frame.DataFrame'>
-Index: 525 entries, 0 to 525
-Data columns (total 7 columns):
- #   Column         Non-Null Count  Dtype   
----  ------         --------------  -----   
- 0   Company_Brand  525 non-null    object  
- 1   Sector         525 non-null    object  
- 2   Stage          525 non-null    category
- 3   Amount         525 non-null    float64 
- 4   HeadQuarter    525 non-null    object  
- 5   What_it_does   525 non-null    object  
- 6   Year           525 non-null    int64   
-dtypes: category(1), float64(1), int64(1), object(4)
-memory usage: 29.9+ KB
-```
