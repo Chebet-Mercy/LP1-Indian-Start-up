@@ -91,7 +91,7 @@ The following steps were taken to handle the issues with the datasets
 ### Answering the questions. 
 Here is a link to the Power Bi Dashboard used for deployment
  https://app.powerbi.com/links/XYnbD6Ma1L?ctid=4487b52f-f118-4830-b49d-3c298cb71075&pbi_source=linkShare
- 
+
 The answers to some of the relevants questions above are visualized using the dashbooard below.
 ![alt text](image.png)
 
@@ -111,3 +111,12 @@ Furthermore, considering the significant funding received by headquarters locate
 Based on the analysis, the Null Hypothesis is rejected because there is a significant difference in the amount of funding received by startups across different sectors and stages.
 
 Therefore, leveraging the insights gained from the analysis, focusing on the Finance Sector, and considering opportunities in Mumbai can enhance the chances of making successful investment decisions and fostering innovation in the startup ecosystem.
+
+### Acknowledgment 
+Lots of appreciation to my tutors at Azubi Africa COHORT 7, My fellow students in DAP7 for being resourceful throughout this journey. Special thanks to team Ireland and amazing, thought provoking and dedicated team to work with.
+
+How to Contribute to project pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change
+
+please make sure to update tests as appropriate.
+
+licence [MIT] (https://choosealicense.com/licenses/mit/)
