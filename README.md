@@ -91,5 +91,5 @@ The following steps were taken to handle the issues with the datasets
 ### Answering the questions. 
 
 The answers to some of the relevants questions above are virsualized using the dashbooard below.
-
+![alt text](image.png)
 
