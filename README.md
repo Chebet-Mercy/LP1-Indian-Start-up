@@ -5,7 +5,7 @@ This repositiory presents an analysis of funding received by Indian startups fro
 
 |Project Code | Project Name | Description | Technology Used | Published Article |
 |-------------|--------------|-------------|-----------------|------------------|
-|LP1 | Indian-Start-up-Funding-Analysis  | Analysing  the funding received by Indian startups from 2018 to 2021 using Exploratory Data Analysis (EDA) techniques| Python, Pandas, Matplotlib, Seaborn, Jupyter Notebook |
+|LP1 | Indian-Start-up-Funding-Analysis  | Analysing  the funding received by Indian startups from 2018 to 2021 using Exploratory Data Analysis (EDA) techniques| Python, Pandas, matplotlib, PowerBI |
 
 ## Exploratory Data Analysis (EDA)
 Exploratory Data Analysis (EDA) plays a vital role in understanding and extracting insights from datasets. It allows us to uncover patterns, relationships, and key characteristics of the data. The main objective of this project is to utilize the CRISP-DM framework as a guiding framework for conducting exploratory data analysis (EDA) and extracting valuable insights. The CRoss Industry Standard Process for Data Mining (CRISP-DM) is a process model that serves as the base for data processing. 
@@ -89,7 +89,25 @@ The following steps were taken to handle the issues with the datasets
 9. Rename columns.
 
 ### Answering the questions. 
-
-The answers to some of the relevants questions above are virsualized using the dashbooard below.
+Here is a link to the Power Bi Dashboard used for deployment
+ https://app.powerbi.com/links/XYnbD6Ma1L?ctid=4487b52f-f118-4830-b49d-3c298cb71075&pbi_source=linkShare
+ 
+The answers to some of the relevants questions above are visualized using the dashbooard below.
 ![alt text](image.png)
 
+### Analysis:
+Upon analyzing the datasets for the years 2018, 2019, 2020, and 2021, several key insights were revealed.
+
+Firstly, the Finance sector emerged as the most funded sector, receiving a substantial sum of $3.1 Billion out of the sum of $371 Billion. This sector demonstrated its dominance in attracting investments. Additionally, it was observed that the headquarters located in Mumbai received the highest funding among all the regions.
+
+Secondly, The highest investor in India is Kalaari Capital with a total funding of $151 Billion and was closely followed by Venture Capital with a total funding of $150 Billion. Additionally, The data revealed that Seed D stage received the The highest funding with a total funding of $155 Billion.
+
+### Recommendation:
+Based on the analysis of the funding trends from 2018 to 2021, it is clear that the Finance sector has been a frontrunner in attracting investments. This sector has consistently received the highest funding throughout the analyzed period. Therefore, it is recommended for investors and entrepreneurs to explore opportunities within the Finance sector. Investing in technology-driven startups and ventures can potentially yield favorable returns and provide opportunities for growth and innovation.
+
+Furthermore, considering the significant funding received by headquarters located in Mumbai, it may be beneficial to explore the startup ecosystem in this region. Mumbai has shown promising potential as a hub for entrepreneurial activities and investments. Collaborating with local startup communities, attending industry events, and engaging with relevant stakeholders in Mumbai can provide valuable networking opportunities and access to potential investment prospects.
+
+### CONCLUSIONS
+Based on the analysis, the Null Hypothesis is rejected because there is a significant difference in the amount of funding received by startups across different sectors and stages.
+
+Therefore, leveraging the insights gained from the analysis, focusing on the Finance Sector, and considering opportunities in Mumbai can enhance the chances of making successful investment decisions and fostering innovation in the startup ecosystem.
